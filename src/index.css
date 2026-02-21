@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --emerald-glow: rgba(16, 185, 129, 0.25);
+  --red-glow: rgba(220, 38, 38, 0.35);
+}
+
+* {
+  font-family: 'Nunito', system-ui, sans-serif;
+}
+
+body {
+  background-color: #f0fdf4;
+}
+
+/* =============================================
+   RICH PAW-PRINT TILED BACKGROUND
+   Using an inline SVG as a data URI for the pattern
+=============================================== */
+.paw-bg {
+  background-color: #e8f5e9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg opacity='0.07' fill='%23065f46'%3E%3Cellipse cx='40' cy='52' rx='13' ry='10'/%3E%3Cellipse cx='27' cy='38' rx='7' ry='6'/%3E%3Cellipse cx='53' cy='38' rx='7' ry='6'/%3E%3Cellipse cx='33' cy='28' rx='5.5' ry='5'/%3E%3Cellipse cx='47' cy='28' rx='5.5' ry='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* =============================================
+   RESULT CARD - PERSONALITY IMAGE REVEAL
+=============================================== */
+.personality-image-reveal {
+  position: relative;
+}
+
+.personality-image-reveal::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #10b981, #34d399, #6ee7b7, #10b981);
+  animation: spin-glow 4s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+@keyframes spin-glow {
+  to { transform: rotate(360deg); }
+}
+
+/* =============================================
+   BUTTON GLOW EFFECTS
+=============================================== */
+.btn-start {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #059669, #10b981);
+  box-shadow: 0 12px 0 #047857, 0 0 30px rgba(16, 185, 129, 0.3);
+  transition: all 0.15s ease;
+}
+
+.btn-start:hover {
+  box-shadow: 0 8px 0 #047857, 0 0 40px rgba(16, 185, 129, 0.5);
+  transform: translateY(2px);
+}
+
+.btn-start:active {
+  box-shadow: 0 2px 0 #047857;
+  transform: translateY(8px);
+}
+
+.btn-start::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  to { left: 200%; }
+}
+
+/* =============================================
+   EXIT POPUP ENHANCEMENTS 
+=============================================== */
+.exit-popup-bg {
+  background: radial-gradient(ellipse at center, #7f1d1d 0%, #450a0a 100%);
+}
+
+/* =============================================
+   QUIZ CARD
+=============================================== */
+.quiz-answer-btn {
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.quiz-answer-btn:hover {
+  transform: translateX(8px) scale(1.02);
+}
+
+/* =============================================
+   THINKING SCREEN PULSING DOTS
+=============================================== */
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* =============================================
+   GENERAL SMOOTH SCROLLING & ANIMATIONS
+=============================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+.float-up {
+  animation: float-up 3s ease-in-out infinite;
+}
+@keyframes float-up {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* =============================================
+   PERSONALITY CARD SHINE EFFECT
+=============================================== */
+.result-card-header {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.result-card-header::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
