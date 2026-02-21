@@ -18,8 +18,8 @@ function App() {
   const [isExitPopupOpen, setIsExitPopupOpen] = useState(false);
   const [isCatAngry, setIsCatAngry] = useState(false);
 
-  const meowAudio = React.useRef(new Audio('/sounds/meow.mp3'));
-  const hissAudio = React.useRef(new Audio('/sounds/hiss.mp3'));
+  const meowAudio = React.useRef(new Audio('./sounds/meow.mp3'));
+  const hissAudio = React.useRef(new Audio('./sounds/hiss.mp3'));
 
   const playMeow = () => {
     meowAudio.current.currentTime = 0;
