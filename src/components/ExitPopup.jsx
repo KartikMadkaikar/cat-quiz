@@ -85,7 +85,7 @@ const ExitPopup = ({ isOpen, onClose }) => {
                                     }}
                                 >
                                     <img
-                                        src="/images/personalities/AngryCatty.png"
+                                        src="./images/personalities/AngryCatty.png"
                                         alt="Angry Cat"
                                         className="w-48 h-auto object-contain"
                                         style={{ mixBlendMode: 'multiply' }}
